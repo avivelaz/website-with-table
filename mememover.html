@@ -1,0 +1,108 @@
+<!--
+Author: [Avismel Velazco]
+Description: This HTML file contains a meme image that moves around the screen using JavaScript when the Start button is clicked. The movement stops when the Stop button is clicked. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata and linking the stylesheet -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Mover</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Style for the buttons and image */
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background-color: blanchedalmond;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        #startBtn, #stopBtn {
+            padding: 15px 25px; /* Fixed typo from '15x' to '15px' */
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #memeImage {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome Class CSC 102</h1>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <h2>Navigation</h2>
+        <a href="index.html">Home</a><br>
+        <a href="boards.html">Boards</a><br>
+        <a href="meme.html">Meme</a><br>
+        <a href="mememover.html">Fun Meme</a><br>
+        <a href="game.html">Game</a><br>
+        <a href="palindrome.html">Palindrome</a><br>
+        <a href="user_input.html">User Input</a><br>
+        <a href="spatial.html">Spatial</a><br>
+        <a href="table.html">Table</a><br>
+    </nav>
+
+    <!-- Start button to begin moving the image -->
+    <button id="startBtn" onclick="startMoving()">Start</button>
+    <!-- Stop button to stop moving the image -->
+    <button id="stopBtn" onclick="stopMoving()" disabled>Stop</button>
+    <!-- Meme image to move around the screen -->
+    <img id="memeImage" src="meme_dilema1.jpg" alt="Meme Image" width="150">
+
+    <script>
+        // Variable to store the interval ID
+        let moveInterval;
+
+        // Function to move the meme image to a random position
+        function moveImage() {
+            const memeImage = document.getElementById('memeImage');
+            // Generate random positions within the window boundaries
+            const maxX = window.innerWidth - memeImage.width;
+            const maxY = window.innerHeight - memeImage.height;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            // Set the new position
+            memeImage.style.left = `${randomX}px`;
+            memeImage.style.top = `${randomY}px`;
+        }
+
+        // Function to start moving the image
+        function startMoving() {
+            // Disable the Start button and enable the Stop button
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            // Move the image every 500 milliseconds
+            moveInterval = setInterval(moveImage, 500);
+        }
+
+        // Function to stop moving the image
+        function stopMoving() {
+            // Enable the Start button and disable the Stop button
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+            // Clear the interval to stop the movement
+            clearInterval(moveInterval);
+        }
+    </script>
+
+    <!-- Footer Section -->
+    <footer>
+        Avismel Velazco<br>
+        University of Advancing Technology<br>
+        2625 W Baseline Rd<br>
+        Tempe, AZ 85283<br>
+    </footer>
+</body>
+</html>

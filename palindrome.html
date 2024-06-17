@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <Title>Palindrome Checker</Title>
+
+    <!-- Comment: Adding my name at the top of the HTML file -->
+    <!-- Name:[Avismel Velazco] -->
+
+    <!-- Link to Google Fonts for custom font -->
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=TimeNewRoman:wght@350;700&display=swap">
+
+    <!-- Internal CSS for styling the page -->
+    <style>
+        body {
+            font-family: 'TimeNewRoman', sans-serif;
+            background-color: cornflowerblue; /* Light blue background */
+            color: beige; /* Dark text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        h1 {
+        font-size: 3.0rem;
+        }
+
+        #image-container {
+           margin-top: 25px;
+        }  
+
+        img {
+            width: 200px;
+            height: auto;
+        }  
+
+        .button {
+        padding: 10px 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        background-color: burlywood;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5px;
+        margin-top: 10px;        
+    }
+
+    </style>
+    </head>
+<body>
+
+    <!-- Main Heading of the page -->
+    <h1> Palindrome Checker</h1>
+
+    <!-- Button to star the palindrome check loop -->
+    <button class="button" onclick="checkPalindrome()">Check a Palindrome</button>
+
+    <!--Container for an image -->
+    <div id="image-container">
+        <img src="https://via.placeholder.com/150"alt="Sample Image">
+    </div>
+   
+    <!-- Javascript code to handle the Palindrome checking logic -->
+    <script>
+         // Function to check if a string is a palindrome
+         function isPalindrome(str) {
+            // Remove all non-alphanumeric characters and convert to lowercase
+            var cleanedStr = str.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+            // Compare the cleaned string with its reverse
+            return cleanedStr === cleanedStr.split('').reverse().join('');
+        }
+
+        // Function to handle the palindrome checking loop
+        function checkPalindrome() {
+            while (true) {
+                // Prompt the user to enter a string
+                var userInput = prompt("Enter a word or phrase:");
+
+                // If the user cancels the prompt or enters an empty string, exit the loop
+                if (userInput === null || userInput.trim() === "") {
+                    alert("Exiting the palindrome checker.");
+                    break;
+                }
+
+                // Check if the user input is a palindrome and notify the user
+                if (isPalindrome(userInput)) {
+                    alert(`"${userInput}" is a palindrome!`);
+                } else {
+                    alert(`"${userInput}" is not a palindrome.`);
+                }
+
+                // Ask the user if they want to check another string
+                var again = confirm("Do you want to check another word or phrase?");
+                // If the user does not want to check another string, exit the loop
+                if (!again) {
+                    break;
+                    }
+                }
+            }
+        
+    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Menu</h1>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <h2>Navigation</h2>
+        <a href="index.html">Home</a><br>
+        <a href="boards.html">Boards</a><br>
+        <a href="meme.html">Meme</a><br>
+        <a href="mememover.html">Fun Meme</a><br>
+        <a href="game.html">Game</a><br>
+        <a href="palindrome.html">Palindrome</a><br>
+        <a href="user_input.html">User Input</a><br>
+        <a href="spatial.html">Spatial</a><br>
+        <a href="table.html">Table</a><br>
+        <br><br><br><br><br>
+    </nav>
+    <!-- Footer Section -->
+<footer>
+    Avismel Velazco<br>
+    University of Advancing Technology<br>
+    2625 W Baseline Rd<br>
+    Tempe, AZ 85283<br>
+</footer>
+</body>
+</html>
